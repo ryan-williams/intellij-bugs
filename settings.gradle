@@ -1,4 +1,3 @@
-rootProject.name = "beam"
-
+rootProject.name = "idea-195908"
 include "foo"
 project(":foo").dir = file("foo")
