@@ -27,7 +27,8 @@ mv ~/.m2/repository{,.bak}
 tar xvzf repository.tar.gz -C ~/.m2
 ```
 
-#### Check contents
+<details><summary>#### Check contents</summary>
+<p>
 
 ```bash
 pushd ~/.m2
@@ -46,6 +47,8 @@ repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/hadoop-mapr
 repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/hadoop-mapreduce-client-jobclient-2.7.3.jar.sha1
 repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/_remote.repositories
 ```
+</p>
+</details>
 
 #### Verify SHAs
 
@@ -65,9 +68,23 @@ repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/hadoop-mapr
 
 ### Reload IntelliJ project, observe "Source Sets" are gone
 
-### Removing `mavenLocal` or `hadoop-minicluster` dependency restores "Source Sets"
+### Restore "Source Sets" via any of several tweaks
 
- 
+When these things are all true:
+- `mavenLocal` comes before `mavenCentral` in `project.repositories`
+- `foo` depends on `hadoop-minicluster`, and
+- `hadoop-mapreduce-client-jobclient:2.7.3` is present in `~/.m2/repository`,
+
+then the `foo` module is not loaded correctly.
+
+Breaking any one of them makes "Source Sets" come back:
+- remove `mavenLocal` from `foo/build.gradle`
+  - or just put it after `mavenCentral` 
+- remove the `hadoop-minicluster` dependency in `foo/build.gradle`
+- remove `~/.m2/repository`
+  - this restores the state from [the beginning](#backup-existing-local-maven-repository)
+  - even in the presence of lots of other artifacts in `~/.m2/repository`, removing just `org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3` brings back "Source Sets"
+
 
 ### Restore local Maven repository
 
