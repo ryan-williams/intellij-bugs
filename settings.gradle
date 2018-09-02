@@ -1,0 +1,4 @@
+rootProject.name = "beam"
+
+include "foo"
+project(":foo").dir = file("foo")
