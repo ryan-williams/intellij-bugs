@@ -22,8 +22,11 @@ mv ~/.m2/repository{,.bak}
 
 ### Import project to IntelliJ, verify "Source Sets" in `:foo` module:
 
+![](https://cl.ly/f4f8551b6356/Screen%20Shot%202018-09-02%20at%203.01.23%20PM.png)
 
+![](https://cl.ly/7523e20871eb/Screen%20Shot%202018-09-02%20at%203.01.56%20PM.png)
 
+![](https://cl.ly/7cf8887a9bb1/Screen%20Shot%202018-09-02%20at%203.03.22%20PM.png)
 
 ### Extract [`repository.tar.gz`](./repository.tar.gz) into `~/.m2/repository`:
 
@@ -77,6 +80,8 @@ repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/hadoop-mapr
 </details>
 
 ### Reload IntelliJ project, observe "Source Sets" are gone
+
+![](https://cl.ly/7df12d595c93/Screen%20Shot%202018-09-02%20at%203.04.33%20PM.png)
 
 ### Restore "Source Sets" via any of several tweaks
 
