@@ -2,7 +2,7 @@
 
 When a certain (valid) artifact is in the local Maven repository, the IntelliJ Gradle plugin silently fails to load a module (that transitively depends on the artifact) correctly
 
-See [screencast here](TODO), or steps below:
+See [screencast here](https://www.youtube.com/watch?v=wLEckYEX-_c), or steps below:
 
 ## Repro Steps:
 
