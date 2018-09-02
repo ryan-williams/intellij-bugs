@@ -27,7 +27,7 @@ mv ~/.m2/repository{,.bak}
 tar xvzf repository.tar.gz -C ~/.m2
 ```
 
-<details><summary>#### Check contents</summary>
+<details><summary>Check contents</summary>
 <p>
 
 ```bash
@@ -50,7 +50,8 @@ repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/_remote.rep
 </p>
 </details>
 
-#### Verify SHAs
+<details><summary>Verify SHAs</summary>
+<p>
 
 ```bash
 cat <<EOF | sha1sum -c -
@@ -65,6 +66,9 @@ repository/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/hadoop-mapr
 
 - [see also: Maven Central](https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3/)
 - On OSX, `sha1sum` may be available as `gsha1sum` via `brew install coreutils` 
+
+</p>
+</details>
 
 ### Reload IntelliJ project, observe "Source Sets" are gone
 
