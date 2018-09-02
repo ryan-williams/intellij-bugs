@@ -1,5 +1,9 @@
 # IDEA-195908
 
+When a certain (valid) artifact is in the local Maven repository, the IntelliJ Gradle plugin silently fails to load a module (that transitively depends on the artifact) correctly
+
+See [screencast here](TODO), or steps below:
+
 ## Repro Steps:
 
 ### Clone + checkout branch
@@ -26,6 +30,8 @@ mv ~/.m2/repository{,.bak}
 ```bash
 tar xvzf repository.tar.gz -C ~/.m2
 ```
+
+`~/.m2/repository` now contains only the artifact `org.apache.hadoop:hadoop-mapreduce-client-jobclient:2.7.3`
 
 <details><summary>Check contents</summary>
 <p>
@@ -90,8 +96,9 @@ Breaking any one of them makes "Source Sets" come back:
   - even in the presence of lots of other artifacts in `~/.m2/repository`, removing just `org/apache/hadoop/hadoop-mapreduce-client-jobclient/2.7.3` brings back "Source Sets"
 
 
-### Restore local Maven repository
+### Cleanup: restore local Maven repository
 
 ```bash
+rm -rf ~/.m2/repository
 mv ~/.m2/repository{.bak,}
 ```
